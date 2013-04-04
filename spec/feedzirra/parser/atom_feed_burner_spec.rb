@@ -35,6 +35,11 @@ describe Feedzirra::Parser::AtomFeedBurner do
     it "should parse the url" do
       @feed.url.should == "http://www.pauldix.net/"
     end
+
+    it "should parse the url when there is no alternate" do
+      feed = Feedzirra::Parser::AtomFeedBurner.parse(File.read("#{File.dirname(__FILE__)}/../../sample_feeds/FeedBurnerUrlNoAlternate.xml"))
+      feed.url.should == 'http://example.com/'
+    end
     
     it "should parse the feed_url" do
       @feed.feed_url.should == "http://feeds.feedburner.com/PaulDixExplainsNothing"
