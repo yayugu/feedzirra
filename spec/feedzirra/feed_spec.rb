@@ -118,6 +118,7 @@ describe Feedzirra::Feed do
     end
 
     it "should return a Feedzirra::Parser::RSS object for an itunes feed" do
+      pending('Disabled itunes feed parser to avoid false detect.')
       Feedzirra::Feed.determine_feed_parser_for_xml(sample_itunes_feed).should == Feedzirra::Parser::ITunesRSS
     end
 
